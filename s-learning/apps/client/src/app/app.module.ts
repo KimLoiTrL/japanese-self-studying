@@ -6,11 +6,18 @@ import { NxWelcomeComponent } from './nx-welcome.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 
+import { LayoutModule } from './layout/layout.module';
+
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
+    RouterModule.forRoot(
+      appRoutes, {
+        initialNavigation: 'enabledBlocking'
+      }
+    ),
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent],
