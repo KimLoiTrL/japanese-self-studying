@@ -67,6 +67,9 @@
 }
 
 #header-menu{
+  .nav-item{
+    margin-right: 20px !important;
+  }
   a {
     background: linear-gradient(0deg, slateblue, slateblue) no-repeat right bottom / 0 var(--bg-h);
     transition: background-size 350ms;
@@ -86,6 +89,11 @@
     line-height: 1;
     font-weight: 500;
   }
+}
+
+.navbar-right{
+  position: fixed;
+  right: 0;
 }
 
 @media (min-width: 1200px) {
