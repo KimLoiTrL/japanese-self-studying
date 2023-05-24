@@ -1,0 +1,49 @@
+.sets {
+  margin-top: 80px;
+  position: relative;
+  height: 100%;
+}
+
+.card{
+  width: 220px;
+  margin-top: 20px;
+}
+
+.card img{
+  padding: 5px;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.card-body{
+  height: 60px;
+  padding: 5px;
+}
+
+.card-text{
+  margin: 0%;
+}
+
+//pagination
+.custom-pagination {
+  float: right;
+  align-items: center;
+  padding-top: 20px;
+}
+
+::ng-deep .ngx-pagination .current {
+  background-color: #9cb1d6 !important;
+  color: black !important;
+  border-radius: 3px;
+}
+
+::ng-deep .ngx-pagination li a {
+  border-radius: 3px ;
+  margin: 2px;
+}
+
+::ng-deep .ngx-pagination li a:hover {
+  background-color: #ccc !important;
+  color: black !important;
+  border-radius: 3px;
+}

@@ -3,21 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
-import { RouterModule } from '@angular/router';
-import { appRoutes } from './app.routes';
 
 import { LayoutModule } from './layout/layout.module';
+import { SetsModule } from './features/sets/sets.module';
+import { AppRoutingModule } from './app.routing';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent],
+  declarations: [
+    AppComponent,
+    NxWelcomeComponent
+  ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(
-      appRoutes, {
-        initialNavigation: 'enabledBlocking'
-      }
-    ),
-    LayoutModule
+    AppRoutingModule,
+    HttpClientModule,
+    LayoutModule,
+    SetsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
