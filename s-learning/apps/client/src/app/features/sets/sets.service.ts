@@ -9,7 +9,7 @@ export class SetsService {
   constructor(private http:HttpClient) { }
 
   get(){
-    return this.http.get<Set[]>("http://localhost:3000/api/sets");
+    return this.http.get<Set[]>(`/api/sets`);
   }
 }
 

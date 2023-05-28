@@ -8,6 +8,7 @@ import { LayoutModule } from './layout/layout.module';
 import { SetsModule } from './features/sets/sets.module';
 import { AppRoutingModule } from './app.routing';
 import { HttpClientModule } from '@angular/common/http';
+import { CardsModule } from './features/cards/cards.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
     LayoutModule,
-    SetsModule
+    SetsModule,
+    CardsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

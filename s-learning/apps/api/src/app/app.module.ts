@@ -1,4 +1,5 @@
 import { Module } from "@nestjs/common";
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { SetsModule } from "./sets/sets.module";
 
@@ -7,8 +8,17 @@ import { AppService } from "./app.service";
 
 @Module({
   imports: [
-    MongooseModule.forRoot("mongodb+srv://bi:2GKbwDviKgbavvnk@cluster0.kw53spx.mongodb.net/s-learning?retryWrites=true&w=majority"),
-    SetsModule
+    ConfigModule.forRoot({
+      envFilePath: ['.env.prod', '.env']
+    }),
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => ({
+        uri: configService.get('MONGODB_URI')
+      }),
+      inject: [ConfigService]
+    }),
+    SetsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

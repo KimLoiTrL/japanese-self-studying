@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="cardswipwer row">
+    <div class="col-md-8">
+      <swiper
+        [slidesPerView]="1"
+        [spaceBetween]="50"
+        [navigation]="true"
+        [pagination]="{ type: 'fraction' }"
+        [centeredSlides]="true"
+        [keyboard]="{
+          enabled: true
+        }"
+        [virtual]="true"
+        class="my-swiper"
+      >
+        <ng-template swiperSlide *ngFor="let slide of slides$ | async; index as i">
+          <label>
+            <div class="card flashcard" [class.flipped]="flipped" (click)="toggle()">
+              <div class="front card-text ">
+                <p style="font-size: 35px; margin: 0;">会議</p>
+              </div>
+              <div class="back card-text">
+                <p style="font-size: 35px; margin: 0;">conference, meeting</p>
+              </div>
+            </div>
+          </label>
+        </ng-template>
+      </swiper>
+    </div>
+    <div class="col col-md-4">
+      <div class="card pronunciation">
+        <div class="card-body">
+          <h5 class="card-title" style="color: #012970;">
+            Pronunciation
+            <span><i class="bi bi-volume-up"></i></span> <hr>
+          </h5>
+          <p class="card-text">かいぎ</p>
+        </div>
+      </div>
+      <div class="card sentences">
+        <div class="card-body">
+          <h5 class="card-title" style="color: #012970;">Sample sentences</h5> <hr>
+          <p class="card-text">今日の午後、大事な会議があります。</p>
+          <p class="card-text">There's an important meeting this afternoon.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
