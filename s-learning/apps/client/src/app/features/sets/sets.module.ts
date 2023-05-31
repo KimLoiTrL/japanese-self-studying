@@ -7,7 +7,7 @@ import { SetListComponent } from './pages/set-list/set-list.component';
 
 const routes: Routes = [
   {
-    path: 'list',
+    path: 'sets',
     component: SetListComponent
   }
 ]

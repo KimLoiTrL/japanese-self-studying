@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'topic',
+    path: '', redirectTo: '/welcome', pathMatch: 'full' },
+  {
+    path: 'vocabulary-pronunciation',
     loadChildren: () => import('./features/sets/sets.module').then(m => m.SetsModule)
   },
   {
