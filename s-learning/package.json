@@ -27,6 +27,7 @@
     "mongodb": "^5.5.0",
     "mongoose": "^7.2.0",
     "ngx-pagination": "^6.0.3",
+    "ngx-swiper-wrapper": "^8.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~7.5.0",
     "swiper": "^8.4.7",
