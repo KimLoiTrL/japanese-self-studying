@@ -53,6 +53,7 @@ img {
   font-size: 50px;
   color: #012970;
   font-weight: bold;
+  text-transform: capitalize;
 }
 
 .banner_text {
@@ -81,12 +82,6 @@ img {
   padding-bottom: 100px;
 }
 
-.blog_taital_main{
-  width: 100%;
-  float: left;
-  padding-left: 100px;
-}
-
 .blog_taital{
   width: 100%;
   float: left;
@@ -109,6 +104,10 @@ img {
   padding-top: 50px;
 }
 
+.blog_section_2 .blog_taital_main .ipsum_text{
+  width: 95%;
+}
+
 .img_item1{
   width: 95%;
   float: left;
@@ -116,14 +115,23 @@ img {
   height: auto;
   text-align: center;
   padding: 40px 0px;
+  border-radius: 10px;
 }
+
 .img_item2{
   width: 100%;
   float: left;
   background-color: #ccd4e2;
   height: auto;
   text-align: center;
-  padding: 50px 40px;
+  padding: 40px 0px;
+  border-radius: 10px;
+}
+
+.blog_taital_main{
+  width: 100%;
+  float: left;
+  padding: 80px 0;
 }
 
 .item_text {
@@ -133,15 +141,56 @@ img {
   color: #012970;
   text-transform: uppercase;
   font-weight: bold;
-  padding-top: 30px;
 }
 
 .ipsum_text {
-  width: 82%;
+  width: 100%;
   float: left;
   font-size: 20px;
   color: #191616;
   margin: 0px;
   padding-top: 20px;
+  text-align: justify;
 }
 /* blog section end */
+
+@media (max-width: 768px) {
+  #wrapper {
+    margin-top: 0px;
+  }
+
+  .img_main{
+    padding-top: 40px;
+  }
+
+  .img_item1{
+    width: 100%;
+  }
+
+  .blog_section{
+    padding-top: 0;
+  }
+
+  .blog_section_2 .row {
+    flex-direction: column-reverse;
+  }
+
+  .blog_section_1 .blog_taital_main,
+  .blog_section_2 .blog_taital_main {
+    text-align: center;
+  }
+
+  .blog_taital_main .ipsum_text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .blog_section_2{
+    padding-top: 0;
+  }
+
+  .blog_section_2 .blog_taital_main .ipsum_text{
+    width: 100%;
+  }
+}

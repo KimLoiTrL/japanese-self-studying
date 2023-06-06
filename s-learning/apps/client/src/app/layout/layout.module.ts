@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { NavigationComponent } from './navigation/navigation.component';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [NavigationComponent, WelcomeComponent, HomeComponent],
   imports: [
+    NgbDropdownModule,
     CommonModule,
     RouterModule,
     RouterModule.forChild(routes)

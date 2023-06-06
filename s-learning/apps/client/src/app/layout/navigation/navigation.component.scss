@@ -96,6 +96,17 @@
   right: 0;
 }
 
+.dropdown-item.active{
+  background-color: #fff;
+  color: #012970;
+  font-weight: 500;
+}
+
+.dropdown-item:focus{
+  background-color: #fff;
+  color: black;
+}
+
 @media (min-width: 1200px) {
   .logo {
       width: 280px;

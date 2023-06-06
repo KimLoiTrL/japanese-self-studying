@@ -9,9 +9,17 @@
     <div class="nav-item">
       <a class="underline" [routerLink]="['/home']" routerLinkActive="active">Home</a>
     </div>
-    <div class="nav-item">
-      <a class="underline" [routerLink]="['/vocabulary-pronunciation/sets']" routerLinkActive="active">Topic</a>
-    </div>
+    <div ngbDropdown class="nav-item" style="cursor:pointer;">
+			<a class="underline" id="dropdownBasic1" ngbDropdownToggle>Topics</a>
+			<div ngbDropdownMenu>
+				<button ngbDropdownItem>
+          Grammar
+        </button>
+				<button ngbDropdownItem [routerLink]="['/vocabulary-pronunciation/sets']" routerLinkActive="active">
+          Vocab - Pronun
+        </button>
+			</div>
+		</div>
     <div class="nav-item" >
       <a class="underline" [routerLink]="['/cards/flashcard']" routerLinkActive="active">Flashcard</a>
     </div>
