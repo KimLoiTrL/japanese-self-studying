@@ -1,14 +1,18 @@
 <div class="container">
   <div class="sets col">
     <div class="sets-header d-flex align-items-center justify-content-between">
-      <div class="text-muted" style="padding-left: 20px;">
-        sort by |
-        <select>
-          <option *ngFor="let item of items" [value]="item">{{item}}</option>
-        </select>
+      <div class="title">
+        <h2>Vocabulary - Pronunciation</h2>
       </div>
-      <div style="padding-right: 20px;">
-        <button type="button" class="btn btn-outline-secondary" style="width:175px">TEST</button>
+      <div class="group-feature">
+        <div class="sort-select">
+          <select>
+            <option *ngFor="let item of items" [value]="item">{{item}}</option>
+          </select>
+        </div>
+        <div class="btn-test">
+          <button type="button" class="btn btn-outline-warning">TEST</button>
+        </div>
       </div>
     </div>
 

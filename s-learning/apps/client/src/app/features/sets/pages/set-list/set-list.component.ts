@@ -14,9 +14,9 @@ export class SetListComponent implements OnInit{
   sets: Set[] = [];
   config: any;
   items = [
-    "ALPHABET",
-    "ASCENDING",
-    "DESCENDING"
+    'Alphabet',
+    'Ascending',
+    'Descending'
   ];
 
   ngOnInit(): void{
