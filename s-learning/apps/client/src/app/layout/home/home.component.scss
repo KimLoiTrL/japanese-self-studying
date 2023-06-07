@@ -54,3 +54,27 @@
   width: 295px;
   height: 220px;
 }
+
+@media (max-width: 768px) {
+  .home-details .content {
+    margin: 0px 30px 30px;
+    padding-bottom: 0px;
+  }
+
+  .home-details .content img{
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .home-details .content {
+    margin: 0px 30px 30px;
+    padding-bottom: 0px;
+  }
+
+  .home-details .content img{
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
