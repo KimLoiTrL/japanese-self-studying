@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { SetsModule } from "./sets/sets.module";
 import { CardsModule } from "./cards/cards.module";
+import { GramsetsModule } from "./gramsets/gramsets.module";
 
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
@@ -20,7 +21,8 @@ import { AppService } from "./app.service";
       inject: [ConfigService]
     }),
     SetsModule,
-    CardsModule
+    CardsModule,
+    GramsetsModule
   ],
   controllers: [AppController],
   providers: [AppService],

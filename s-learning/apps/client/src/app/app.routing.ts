@@ -9,6 +9,10 @@ const routes: Routes = [
     loadChildren: () => import('./features/sets/sets.module').then(m => m.SetsModule)
   },
   {
+    path: 'grammar',
+    loadChildren: () => import('./features/gramsets/gramsets.module').then(m => m.GramsetsModule)
+  },
+  {
     path: 'cards',
     loadChildren: () => import('./features/cards/cards.module').then(m => m.CardsModule)
   }

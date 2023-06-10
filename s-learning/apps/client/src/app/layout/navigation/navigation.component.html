@@ -12,7 +12,7 @@
     <div ngbDropdown class="nav-item" style="cursor:pointer;">
 			<a class="underline" id="dropdownBasic1" ngbDropdownToggle>Topics</a>
 			<div ngbDropdownMenu>
-				<button ngbDropdownItem>
+				<button ngbDropdownItem [routerLink]="['/grammar/sets']" routerLinkActive="active">
           Grammar
         </button>
 				<button ngbDropdownItem [routerLink]="['/vocabulary-pronunciation/sets']" routerLinkActive="active">

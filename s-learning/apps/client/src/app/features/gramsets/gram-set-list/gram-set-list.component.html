@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="sets col">
+    <div class="sets-header d-flex align-items-center justify-content-between">
+      <div class="title">
+        <h2>Grammar</h2>
+      </div>
+      <div class="sort-select">
+        <select>
+          <option *ngFor="let item of items" [value]="item">{{item}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="set-list row">
+      <div class="content col-md-6 d-flex justify-content-center" *ngFor="let item of gramsets | paginate: config">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <span class="title-text">{{item.name}}</span>
+            </h5>
+            <hr>
+            <p class="card-text align-self-center">📌{{item.content}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <pagination-controls
+      class="custom-pagination"
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="pageChanged($event)"
+      #customPaginator>
+    </pagination-controls>
+  </div>
+</div>
+
