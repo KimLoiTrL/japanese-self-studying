@@ -28,9 +28,6 @@ export class Cards {
 
   @Prop()
   set: string;
-
-  @Prop()
-  set_id: string;
 }
 
 export const CardsSchema = SchemaFactory.createForClass(Cards);

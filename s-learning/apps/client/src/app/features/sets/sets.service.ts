@@ -11,12 +11,16 @@ export class SetsService {
   get(){
     return this.http.get<Set[]>(`/api/sets`);
   }
+
+  getSetById(id: string){
+    return this.http.get<Set>(`/api/sets/${id}`);
+  }
 }
 
 export interface Set{
   _id: string;
-  set_id: string;
   name: string;
   imageUrl: string;
+  cards: string[]
 }
 

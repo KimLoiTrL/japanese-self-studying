@@ -8,7 +8,7 @@ import { FlashcardComponent } from './pages/flashcard/flashcard.component';
 
 const routes: Routes = [
   {
-    path: 'flashcard',
+    path: 'flashcard/:id',
     component: FlashcardComponent
   }
 ]

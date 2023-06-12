@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,10 @@ export class CardsService {
   getContent(id: string){
     return this.http.get<Card[]>(`/api/cards/${id}`);
   }
+
+  getCardsBySet(id: string): Observable<Card[]>{
+    return this.http.get<Card[]>(`/api/sets/${id}/cards`)
+  }
 }
 
 export interface Card{
@@ -27,5 +32,4 @@ export interface Card{
   example: string;
   trans: string;
   set: string;
-  set_id: string;
 }
