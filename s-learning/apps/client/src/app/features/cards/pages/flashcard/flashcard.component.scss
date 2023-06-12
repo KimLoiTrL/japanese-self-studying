@@ -72,6 +72,70 @@
   margin-bottom: 30px;
 }
 
+.pronunciation .card-body .card-title span{
+  cursor: pointer;
+  padding: 3px;
+  position: relative;
+  display: inline-block;
+}
+
+.pronunciation .card-body .card-title span:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.pronunciation .card-body .card-title span:hover:before {
+  background-color: #dee6ff;
+}
+
+.pronunciation .card-body .card-title span:hover {
+  color: #1A3E7E;
+}
+
+.pronunciation .card-body .card-title span i {
+  position: relative;
+  z-index: 1;
+}
+
+.sentences .card-body .card-title span{
+  cursor: pointer;
+  padding: 3px;
+  position: relative;
+  display: inline-block;
+}
+
+.sentences .card-body .card-title span:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.sentences .card-body .card-title span:hover:before {
+  background-color: #dee6ff;
+}
+
+.sentences .card-body .card-title span:hover {
+  color: #1A3E7E;
+}
+
+.sentences .card-body .card-title span i {
+  position: relative;
+  z-index: 1;
+}
+
 @media (max-width: 768px){
   .card-detail{
     margin-top: 30px;

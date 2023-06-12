@@ -37,15 +37,18 @@
           <div class="card-body">
             <h5 class="card-title" style="color: #012970;">
               Pronunciation
-              <span><i class="bi bi-volume-up"></i></span> <hr>
+              <span (click)="speak()"><i class="bi bi-volume-up"></i></span> <hr>
             </h5>
-            <p class="card-text">{{currentItem.pronunciation}}</p>
+            <p class="card-text" #pronunText>{{currentItem.pronunciation}}</p>
           </div>
         </div>
         <div class="card sentences">
           <div class="card-body">
-            <h5 class="card-title" style="color: #012970;">Sample sentences</h5> <hr>
-            <p class="card-text">{{currentItem.example}}</p>
+            <h5 class="card-title" style="color: #012970;">
+              Sample sentences
+              <span (click)="speakSents()"><i class="bi bi-volume-up"></i></span> <hr>
+            </h5>
+            <p class="card-text" #sentsText>{{currentItem.example}}</p>
             <p class="card-text">{{currentItem.trans}}</p>
           </div>
         </div>

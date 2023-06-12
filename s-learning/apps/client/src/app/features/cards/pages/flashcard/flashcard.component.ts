@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, HostListener, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, HostListener, ViewChild, ElementRef} from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { SwiperComponent  } from 'swiper/angular';
@@ -17,6 +17,8 @@ import { Set, SetsService } from '../../../sets/sets.service';
 export class FlashcardComponent implements OnInit{
 
   @ViewChild(SwiperComponent) swiperContainerRef!: SwiperComponent;
+  @ViewChild('pronunText') pronunText!: ElementRef;
+  @ViewChild('sentsText') sentsText!: ElementRef;
 
   constructor(
     private cardService: CardsService,
@@ -90,6 +92,22 @@ export class FlashcardComponent implements OnInit{
   loadSetInfo(): void {
     this.setService.getSetById(this.setID)
       .subscribe((set: Set) => this.setTitle = set.name);
+  }
+
+  speak() {
+    const text = this.pronunText.nativeElement.textContent;
+    const message = new SpeechSynthesisUtterance();
+    message.text = text;
+    message.lang = 'ja-JP';
+    window.speechSynthesis.speak(message);
+  }
+
+  speakSents() {
+    const text = this.sentsText.nativeElement.textContent;
+    const message = new SpeechSynthesisUtterance();
+    message.text = text;
+    message.lang = 'ja-JP';
+    window.speechSynthesis.speak(message);
   }
 
   // showSlide(){
