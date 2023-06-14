@@ -6,7 +6,8 @@
       </div>
       <div class="group-feature">
         <div class="sort-select">
-          <select>
+          <span class="text-muted" style="padding-right: 10px;">sort by</span>
+          <select [(ngModel)]="selectedSortOption" (change)="sortWordsets()">
             <option *ngFor="let item of items" [value]="item">{{item}}</option>
           </select>
         </div>

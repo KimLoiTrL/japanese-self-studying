@@ -129,5 +129,14 @@
 
   .sets-header .group-feature{
     padding-right: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sets-header .group-feature .btn-test{
+    margin-left: 0px;
+    margin-top: 10px;
   }
 }
