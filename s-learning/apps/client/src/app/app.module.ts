@@ -11,6 +11,7 @@ import { SetsModule } from './features/sets/sets.module';
 import { CardsModule } from './features/cards/cards.module';
 import { GramsetsModule } from './features/gramsets/gramsets.module';
 import { GramcardsModule } from './features/gramcards/gramcards.module';
+import { AuthModule } from './features/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { GramcardsModule } from './features/gramcards/gramcards.module';
     SetsModule,
     CardsModule,
     GramsetsModule,
-    GramcardsModule
+    GramcardsModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent],
