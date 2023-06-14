@@ -10,6 +10,7 @@ import { LayoutModule } from './layout/layout.module';
 import { SetsModule } from './features/sets/sets.module';
 import { CardsModule } from './features/cards/cards.module';
 import { GramsetsModule } from './features/gramsets/gramsets.module';
+import { GramcardsModule } from './features/gramcards/gramcards.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { GramsetsModule } from './features/gramsets/gramsets.module';
     LayoutModule,
     SetsModule,
     CardsModule,
-    GramsetsModule
+    GramsetsModule,
+    GramcardsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

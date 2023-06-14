@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { SetsModule } from "./sets/sets.module";
 import { CardsModule } from "./cards/cards.module";
 import { GramsetsModule } from "./gramsets/gramsets.module";
+import { GramcardsModule } from "./gramcards/gramcards.module";
 
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
@@ -22,7 +23,8 @@ import { AppService } from "./app.service";
     }),
     SetsModule,
     CardsModule,
-    GramsetsModule
+    GramsetsModule,
+    GramcardsModule
   ],
   controllers: [AppController],
   providers: [AppService],

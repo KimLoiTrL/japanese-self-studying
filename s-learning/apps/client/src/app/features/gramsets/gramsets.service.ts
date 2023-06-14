@@ -11,9 +11,15 @@ export class GramsetsService {
   get(){
     return this.http.get<Gramset[]>(`/api/gramsets`);
   }
+
+  getGramsetById(id: string){
+    return this.http.get<Gramset>(`/api/gramsets/${id}`);
+  }
 }
 
 export interface Gramset{
+  _id: string;
   name: string;
   content: string;
+  gramcards: string[];
 }

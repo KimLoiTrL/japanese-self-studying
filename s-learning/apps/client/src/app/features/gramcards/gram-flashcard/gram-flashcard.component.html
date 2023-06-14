@@ -1,0 +1,68 @@
+<div class="gramcards">
+  <div class="container">
+    <div class="gram-swiper row">
+      <div class="col-md-12">
+        <h2>🎯{{gramsetTitle}}</h2>
+      </div>
+      <div class="gram-swiper-content col-md-8">
+        <swiper #swiperContainer
+          (swiper)="onSwiper($event)"
+          [slidesPerView]="1"
+          [spaceBetween]="50"
+          [navigation]="true"
+          [pagination]="{ type: 'fraction' }"
+          [centeredSlides]="true"
+          [keyboard]="{
+            enabled: true
+          }"
+          [virtual]="true"
+          class="my-swiper"
+        >
+          <ng-template swiperSlide *ngFor="let cardItem of gramCards; let i = index">
+            <label>
+              <div class="card gram-flashcard" [class.flipped]="flipped" (click)="toggle()">
+                <div class="gram-card-front card-text ">
+                  <p>{{cardItem.name}}</p>
+                </div>
+                <div class="gram-card-back card-text">
+                  <p>{{cardItem.define}}</p>
+                </div>
+              </div>
+            </label>
+          </ng-template>
+        </swiper>
+      </div>
+      <div class="gram-card-detail col-md-4" *ngIf="currentCard">
+        <div class="card structure">
+          <div class="card-body">
+            <h5 class="card-title" style="color: #012970;">💡Structure</h5> <hr>
+            <div class="structureContent d-flex flex-row justify-content-around align-items-center">
+              <div class="structureItem">
+                <div *ngFor="let item of currentCard.structure">
+                  <p class="card-text">{{item}}</p>
+                </div>
+              </div>
+              <div class="structureItem">
+                ➕
+              </div>
+              <div class="structureItem">
+                <p class="card-text">{{currentCard.add}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card gram-sentences">
+          <div class="card-body">
+            <h5 class="card-title" style="color: #012970;">✒️Sample sentences</h5> <hr>
+            <div class="sentencesContent">
+              <div class="sentencesItem"><p class="card-text">{{currentCard.ex}}</p></div>
+              <div class="sentencesItem"><p class="card-text">{{currentCard.sub}}</p></div>
+              <div class="sentencesItem"><p class="card-text">{{currentCard.ex_one}}</p></div>
+              <div class="sentencesItem"><p class="card-text">{{currentCard.sub_one}}</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

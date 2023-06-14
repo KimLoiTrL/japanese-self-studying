@@ -1,0 +1,140 @@
+// @import '~swiper/swiper.min.css';
+// @import '~swiper/modules/navigation/navigation.min.css';
+// @import '~swiper/modules/pagination/pagination.min.css';
+
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+
+.gramcards{
+  background-color: #E5E9F0;
+}
+
+.gram-swiper {
+  padding: 80px 0px 38px 0px;
+}
+
+.gram-swiper h2{
+  padding-bottom: 20px;
+  text-transform: capitalize;
+  color: #ffc107;
+}
+
+.gram-flashcard {
+  height: 465px;
+  width: 735px;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: all 600ms;
+  transition: all 600ms;
+  .gram-card-back{
+    display: none;
+  }
+}
+
+.gram-flashcard p{
+  font-size: 36px;
+  margin: 0;
+}
+
+.gram-flashcard.flipped{
+  .gram-card-front{
+    display: none;
+  }
+  .gram-card-back{
+    display: block;
+  }
+}
+
+.gram-flashcard div {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 10%;
+  background-color: #fff;
+}
+
+.gram-flashcard .gram-card-back {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.gram-flashcard .gram-card-back p{
+  padding: 0px 40px;
+}
+
+.gram-flashcard.flipped {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
+
+.gram-card-detail .structure hr{
+  margin: 0px
+}
+
+.gram-card-detail .structure{
+  margin-bottom: 10px;
+  height: 170px;
+}
+
+.gram-card-detail .structureContent{
+  height: 120px;
+}
+
+.gram-card-detail .gram-sentences{
+  height: 285px;
+}
+
+.gram-card-detail .gram-sentences hr{
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+.gram-card-detail .sentencesContent {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 230px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.gram-card-detail .sentencesContent .sentencesItem {
+  flex-grow: 1;
+}
+
+@media (max-width: 768px){
+  .gram-swiper-content{
+    width: 100%;
+  }
+
+  .gram-flashcard{
+    height: 250px;
+    width: 400px;
+  }
+
+  .gram-card-detail .structure{
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .gram-card-detail{
+    margin-top: 30px;
+    padding-bottom: 100px;
+    width: 200%;
+  }
+
+  .gram-swiper-content{
+    width: 100%;
+  }
+
+  .gram-card-detail .structure{
+    margin-bottom: 20px;
+  }
+}
+
