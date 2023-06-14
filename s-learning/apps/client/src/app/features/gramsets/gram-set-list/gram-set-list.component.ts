@@ -17,6 +17,7 @@ export class GramSetListComponent implements OnInit{
     'Ascending',
     'Descending'
   ];
+  gramcardsCount: number[] = [];
 
   ngOnInit(): void{
     this.getAll();
@@ -26,11 +27,13 @@ export class GramSetListComponent implements OnInit{
   getAll(){
     this.gramsetService.get().subscribe((data) => {
       this.gramsets = data;
+      this.calcGramcardsCounts();
     })
   }
 
   pageChanged (event: any){
     this.config.currentPage = event;
+    this.calcGramcardsCounts();
   }
 
   loadPage = () => {
@@ -39,5 +42,11 @@ export class GramSetListComponent implements OnInit{
       currentPage: 1,
       ellipses : false
     };
+  }
+
+  calcGramcardsCounts() {
+    this.gramcardsCount = this.gramsets
+    .slice((this.config.currentPage - 1) * this.config.itemsPerPage, this.config.currentPage * this.config.itemsPerPage)
+    .map((gramset) => gramset.gramcards.length || 0);
   }
 }

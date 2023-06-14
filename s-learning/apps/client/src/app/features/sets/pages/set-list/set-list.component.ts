@@ -18,6 +18,7 @@ export class SetListComponent implements OnInit{
     'Ascending',
     'Descending'
   ];
+  wordCount: number[] = [];
 
   ngOnInit(): void{
     this.getAll();
@@ -27,11 +28,13 @@ export class SetListComponent implements OnInit{
   getAll(){
     this.setService.get().subscribe((data) => {
       this.sets = data;
+      this.calcWordsCounts();
     })
   }
 
   pageChanged (event: any){
     this.config.currentPage = event;
+    this.calcWordsCounts();
   }
 
   loadPage = () => {
@@ -40,5 +43,11 @@ export class SetListComponent implements OnInit{
       currentPage: 1,
       ellipses : false
     };
+  }
+
+  calcWordsCounts() {
+    this.wordCount = this.sets
+    .slice((this.config.currentPage - 1) * this.config.itemsPerPage, this.config.currentPage * this.config.itemsPerPage)
+    .map((sets) => sets.cards.length || 0);
   }
 }

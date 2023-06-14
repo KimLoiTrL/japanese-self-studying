@@ -11,12 +11,15 @@
       </div>
     </div>
     <div class="set-list row">
-      <div class="content col-md-6 d-flex justify-content-center" *ngFor="let item of gramsets | paginate: config">
+      <div class="content col-md-6 d-flex justify-content-center" *ngFor="let item of gramsets | paginate: config; let i = index">
         <div class="card" [routerLink]="['/grammar-flashcard', item._id]" routerLinkActive="active">
           <div class="card-body">
-            <h5 class="card-title">
-              <span class="title-text">{{item.name}}</span>
-            </h5>
+            <div class="text-muted d-flex justify-content-between">
+              <h5 class="card-title">
+                <span class="title-text">{{item.name}}</span>
+              </h5>
+              <p>{{gramcardsCount[i]}} grammars</p>
+            </div>
             <hr>
             <p class="card-text align-self-center">📌{{item.content}}</p>
           </div>
