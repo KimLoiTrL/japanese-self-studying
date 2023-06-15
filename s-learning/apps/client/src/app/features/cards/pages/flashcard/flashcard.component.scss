@@ -6,12 +6,13 @@
 @import 'swiper/scss/navigation';
 @import 'swiper/scss/pagination';
 
-.custom{
-  background-color: #E5E9F0;
+.wordcard-page{
+  background-color: #f0edff;
+  padding-top: 80px;
 }
 
-.cardswipwer {
-  padding: 80px 0px 73px 0px;
+section{
+  height: calc(100vh - 80px);
 }
 
 .cardswipwer h2{

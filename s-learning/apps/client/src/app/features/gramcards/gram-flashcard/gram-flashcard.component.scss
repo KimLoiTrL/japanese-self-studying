@@ -6,12 +6,13 @@
 @import 'swiper/scss/navigation';
 @import 'swiper/scss/pagination';
 
-.gramcards{
-  background-color: #E5E9F0;
+.gramcard-page{
+  background-color: #f0edff;
+  padding-top: 80px;
 }
 
-.gram-swiper {
-  padding: 80px 0px 38px 0px;
+section{
+  height: calc(100vh - 80px);
 }
 
 .gram-swiper h2{

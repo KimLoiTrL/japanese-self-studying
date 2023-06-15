@@ -1,58 +1,60 @@
-<div class="custom">
+<div class="wordcard-page">
   <div class="container">
-    <div class="cardswipwer row">
-      <div class="col-md-12">
-        <h2>🎯{{setTitle}}</h2>
-      </div>
-      <div class="swippercontent col-md-8">
-        <swiper #swiperContainer
-          (swiper)="onSwiper($event)"
-          [slidesPerView]="1"
-          [spaceBetween]="50"
-          [navigation]="true"
-          [pagination]="{ type: 'fraction' }"
-          [centeredSlides]="true"
-          [keyboard]="{
-            enabled: true
-          }"
-          [virtual]="true"
-          class="my-swiper"
-        >
-          <ng-template swiperSlide *ngFor="let item of cards; let i = index">
-            <label>
-              <div class="card flashcard" [class.flipped]="flipped" (click)="toggle();">
-                <div class="front card-text">
-                  <p>{{item.word}}</p>
+    <section class="section d-flex flex-column">
+      <div class="cardswipwer row">
+        <div class="col-md-12">
+          <h2>🎯{{setTitle}}</h2>
+        </div>
+        <div class="swippercontent col-md-8">
+          <swiper #swiperContainer
+            (swiper)="onSwiper($event)"
+            [slidesPerView]="1"
+            [spaceBetween]="50"
+            [navigation]="true"
+            [pagination]="{ type: 'fraction' }"
+            [centeredSlides]="true"
+            [keyboard]="{
+              enabled: true
+            }"
+            [virtual]="true"
+            class="my-swiper"
+          >
+            <ng-template swiperSlide *ngFor="let item of cards; let i = index">
+              <label>
+                <div class="card flashcard" [class.flipped]="flipped" (click)="toggle();">
+                  <div class="front card-text">
+                    <p>{{item.word}}</p>
+                  </div>
+                  <div class="back card-text">
+                    <p>{{item.define}}</p>
+                  </div>
                 </div>
-                <div class="back card-text">
-                  <p>{{item.define}}</p>
-                </div>
-              </div>
-            </label>
-          </ng-template>
-        </swiper>
-      </div>
-      <div class="card-detail col col-md-4" *ngIf="currentItem">
-        <div class="card pronunciation">
-          <div class="card-body">
-            <h5 class="card-title" style="color: #012970;">
-              💡Pronunciation
-              <span (click)="speak()"><i class="bi bi-volume-up"></i></span> <hr>
-            </h5>
-            <p class="card-text" #pronunText>{{currentItem.pronunciation}}</p>
+              </label>
+            </ng-template>
+          </swiper>
+        </div>
+        <div class="card-detail col col-md-4" *ngIf="currentItem">
+          <div class="card pronunciation">
+            <div class="card-body">
+              <h5 class="card-title" style="color: #012970;">
+                💡Pronunciation
+                <span (click)="speak()"><i class="bi bi-volume-up"></i></span> <hr>
+              </h5>
+              <p class="card-text" #pronunText>{{currentItem.pronunciation}}</p>
+            </div>
+          </div>
+          <div class="card sentences">
+            <div class="card-body">
+              <h5 class="card-title" style="color: #012970;">
+                ✒️Sample sentences
+                <span (click)="speakSents()"><i class="bi bi-volume-up"></i></span> <hr>
+              </h5>
+              <p class="card-text" #sentsText>{{currentItem.example}}</p>
+              <p class="card-text">{{currentItem.trans}}</p>
+            </div>
           </div>
         </div>
-        <div class="card sentences">
-          <div class="card-body">
-            <h5 class="card-title" style="color: #012970;">
-              ✒️Sample sentences
-              <span (click)="speakSents()"><i class="bi bi-volume-up"></i></span> <hr>
-            </h5>
-            <p class="card-text" #sentsText>{{currentItem.example}}</p>
-            <p class="card-text">{{currentItem.trans}}</p>
-          </div>
-        </div>
       </div>
-    </div>
+    </section>
   </div>
 </div>
