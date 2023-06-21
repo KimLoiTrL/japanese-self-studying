@@ -15,6 +15,10 @@ export class SetsService {
   getSetById(id: string){
     return this.http.get<Set>(`/api/sets/${id}`);
   }
+
+  FillmaskByNagisa(){
+    return this.http.get<any[]>(`http://localhost:8000/fillmask`);
+  }
 }
 
 export interface Set{

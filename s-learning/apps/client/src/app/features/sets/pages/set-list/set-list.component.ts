@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Set, SetsService } from '../../sets.service';
-import { PaginationControlsComponent } from 'ngx-pagination';
 
 @Component({
   selector: 's-learning-set-list',

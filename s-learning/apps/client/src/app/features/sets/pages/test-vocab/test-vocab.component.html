@@ -1,0 +1,51 @@
+<div class="testvocab-page">
+  <div class="container">
+    <div class="page-title">
+      <h1 class="title_taital" style="color: #1A3E7E;">Japanese language test</h1>
+      <p class="title_text" style="color: #1A3E7E; margin: 0px;">
+        Try to recall the words you have learned and fill in [MASK]
+      </p>
+      <p class="title_text" style="color: #1A3E7E; margin: 0px;">
+        Check all the results in order to try another test
+      </p>
+    </div>
+    <div class="content d-flex flex-column align-items-center">
+      <div class="col-md-12 col-sm-12 col-12" *ngFor="let item of sents">
+        <div class="card">
+          <div class="card-top d-flex justify-content-between">
+            <p class="card-top-sents">sentence to fill in</p>
+            <p class="text-muted">{{item.id}}/10</p>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">
+              <span class="card-title-text">{{item.sentences}}</span>
+            </h5>
+            <hr>
+            <button type="button" class="btn btn-success" (click)="showResults(item)" *ngIf="!item.showResults">Result</button>
+            <div class="result" *ngIf="item.showResults">
+              <div class="show-progress d-flex align-items-center" *ngFor="let result of item.results">
+                <div class="progress-content col">
+                  <div class="progress">
+                    <span class="progress-bar" role="progressbar" [style.width.%]="calculateProgress(result.score, item.results)"></span>
+                  </div>
+                  <div class="d-flex read-result">
+                    <span (click)="speak(result.sequence)"><i class="bi bi-volume-up"></i></span>
+                    <p>{{  result.token_str }}</p>
+                  </div>
+                </div>
+                <div class="score">
+                  <p>{{ result.score | number:'1.3-3' }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-another-test" *ngIf="showAnotherTestButton">
+        <button type="button" class="btn btn-warning" (click)="refreshPage()">
+          Try another test
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

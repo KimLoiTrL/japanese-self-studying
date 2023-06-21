@@ -5,16 +5,21 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
 
 import { SetListComponent } from './pages/set-list/set-list.component';
+import { TestVocabComponent } from './pages/test-vocab/test-vocab.component';
 
 const routes: Routes = [
   {
     path: 'sets',
-    component: SetListComponent
+    component: SetListComponent,
+  },
+  {
+    path: 'test',
+    component: TestVocabComponent,
   }
-]
+];
 
 @NgModule({
-  declarations: [SetListComponent],
+  declarations: [SetListComponent, TestVocabComponent],
   imports: [
     CommonModule,
     NgxPaginationModule,
@@ -23,4 +28,4 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ]
 })
-export class SetsModule { }
+export class SetsModule {}

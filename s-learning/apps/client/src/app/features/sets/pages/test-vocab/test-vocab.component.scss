@@ -1,0 +1,142 @@
+.testvocab-page{
+  background-color: #f0edff;
+  padding-top: 80px;
+}
+
+.page-title{
+  font-family: "Righteous";
+}
+
+.title_taital{
+  font-size: 40px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.title_text{
+  font-size: 16px;
+  text-align: center;
+}
+
+.content{
+  padding-bottom: 20px;
+}
+
+.content .card {
+  margin: 20px 170px 0px;
+  height: 100%;
+  padding: 20px 25px;
+}
+
+.content .card .card-body hr{
+  margin: 10px 0px;
+}
+
+.content .card .card-top p{
+  margin: 0;
+}
+
+.content .card .card-top .card-top-sents{
+  font-weight: 600;
+  color: #6c757d;
+}
+
+.content .card .card-body{
+  padding: 0px;
+}
+
+.content .card .card-body h5{
+  margin: 0px;
+  padding-top: 10px;
+}
+
+.content .card .card-body button{
+  float: right;
+}
+
+.card-title-text{
+  font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,"ＭＳ Ｐゴシック",sans-serif;
+}
+
+//progress
+.progress{
+  width: 98%;
+}
+.show-progress p{
+  margin: 0px;
+  font-family : 'ヒラギノ角ゴ ProN' , 'Hiragino Kaku Gothic ProN' , '游ゴシック' , '游ゴシック体' , YuGothic , 'Yu Gothic' , 'メイリオ' , Meiryo , 'ＭＳ ゴシック' , 'MS Gothic' , HiraKakuProN-W3 , 'TakaoExゴシック' , TakaoExGothic , 'MotoyaLCedar' , 'Droid Sans Japanese' , sans-serif;
+}
+.score p {
+  margin: 0px;
+  font-size: 12px;
+}
+.result .progress{
+  height: 6px;
+  margin: 15px 0;
+}
+.result .progress{
+  background: hsl(0, 0%, 97%) none repeat scroll 0 0;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.1) inset;
+  margin-bottom: 11.6667px;
+  position: relative;
+}
+.result .progress span.progress-bar{
+  background-color: #ffc107;
+  border-radius: 3px;
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: width 1s linear 0s;
+  width: 0;
+}
+.read-result p{
+  font-size: 18px;
+}
+
+.btn-another-test{
+  margin-top: 20px;
+}
+
+//read result
+.read-result span{
+  cursor: pointer;
+  padding: 2px;
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.read-result span:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.read-result span:hover:before {
+  background-color: #dee6ff;
+}
+
+.read-result span:hover {
+  color: #1A3E7E;
+}
+
+.read-result span i {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .content .card {
+    margin: 20px 5px;
+  }
+}
