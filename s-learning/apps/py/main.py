@@ -1,9 +1,13 @@
+import random
+import os
 import pandas as pd
 from fastapi.responses import JSONResponse
 from transformers import pipeline
 from nagisa_bert import NagisaBertTokenizer
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
+from pymongo import MongoClient
 
 app = FastAPI()
 
@@ -16,20 +20,29 @@ app.add_middleware(
   allow_headers=["*"],
 )
 
+#fillmask with nagisa_bert model
 model_name = 'taishi-i/nagisa_bert'
 tokenizer = NagisaBertTokenizer.from_pretrained(model_name)
 fill_mask = pipeline("fill-mask", model=model_name, tokenizer=tokenizer)
 
+#connect to Mongodb using .env
+load_dotenv()
+mongodb_uri = os.getenv('MONGODB_URI')
+client = MongoClient(mongodb_uri)
+db = client.get_default_database()
+collection = db['fillmask']
+
 @app.get("/fillmask")
 def fillMask():
-  df = pd.read_json(r'sentences.json')
-  sentences = list(df.sample(n=10).sentences)
+  documents = collection.find({}, {"sentences": 1, "_id": 0})
+  sentences = list(documents[0]['sentences'].values())
+  random.shuffle(sentences)
+  sentences = sentences[:10]
   ranges = range(1, len(sentences)+1)
   sentences = [str.replace(x, '[ MASK ]', '[MASK]') for x in sentences]
-
   results = []
   for sentence in sentences:
-    sentence = str.replace(sentence,'[ MASK ]', '[MASK]')
+    # sentence = str.replace(sentence,'[ MASK ]', '[MASK]')
     result = fill_mask(sentence)
     result = [{'score': x['score'], 'token_str': x['token_str'], 'sequence': x['sequence']} for x in result]
     results.append(result)
