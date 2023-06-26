@@ -26,4 +26,17 @@ export class SetsService {
       const cardIds = set.cards.map(card => card.toString());
       return this.cardModel.find({ _id: { $in: cardIds } }).exec();
     }
+
+    async createSet(sets : Sets){
+      const newSet = new this.setModel(sets);
+      return newSet.save();
+    }
+
+    async updateSet(id: string, sets: Sets){
+      return await this.setModel.findByIdAndUpdate(id, sets, {new: true});
+    }
+
+    async deleteSet(id:string) {
+      await this.setModel.findByIdAndRemove(id);
+    }
 }

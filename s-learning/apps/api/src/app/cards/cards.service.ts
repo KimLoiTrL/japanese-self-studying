@@ -17,4 +17,17 @@ export class CardsService {
   async findOne(id: string): Promise<Cards> {
     return await this.cardModel.findById(id).exec();
   }
+
+  async createCard(cards : Cards){
+    const newCard = new this.cardModel(cards);
+    return newCard.save();
+  }
+
+  async updateCard(id: string, cards: Cards){
+    return await this.cardModel.findByIdAndUpdate(id, cards, {new: true});
+  }
+
+  async deleteCard(id:string) {
+    await this.cardModel.findByIdAndRemove(id);
+  }
 }

@@ -26,4 +26,17 @@ export class GramsetsService {
       const cardIds = gramset.gramcards.map(gramcard => gramcard.toString());
       return this.gramcardModel.find({ _id: { $in: cardIds } }).exec();
     }
+
+    async createGramset(gramsets : Gramsets){
+      const newGramset = new this.gramsetModel(gramsets);
+      return newGramset.save();
+    }
+
+    async updateGramset(id: string, gramsets: Gramsets){
+      return await this.gramsetModel.findByIdAndUpdate(id, gramsets, {new: true});
+    }
+
+    async deleteGramset(id:string) {
+      await this.gramsetModel.findByIdAndRemove(id);
+    }
 }

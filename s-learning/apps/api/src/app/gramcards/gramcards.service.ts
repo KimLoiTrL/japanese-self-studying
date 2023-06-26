@@ -17,4 +17,17 @@ export class GramcardsService {
   async findOne(id: string): Promise<Gramcards> {
     return await this.GramcardModel.findById(id).exec();
   }
+
+  async createGramcard(gramcards : Gramcards){
+    const newGramcard = new this.GramcardModel(gramcards);
+    return newGramcard.save();
+  }
+
+  async updateGramcard(id: string, gramcards: Gramcards){
+    return await this.GramcardModel.findByIdAndUpdate(id, gramcards, {new: true});
+  }
+
+  async deleteGramcard(id:string) {
+    await this.GramcardModel.findByIdAndRemove(id);
+  }
 }
