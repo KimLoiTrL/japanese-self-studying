@@ -15,17 +15,22 @@
                       <div class="pt-4 pb-2">
                          <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
                          <p class="text-center small text-muted">Enter your email & password to login</p>
+                         <p class="text-center" style="margin-bottom: 0px; color: red;" *ngIf="errLogin">{{errLogin}}</p>
                       </div>
-                      <form class="row g-3">
+                      <form class="row g-3" id="form_login" [formGroup]="loginForm" (ngSubmit)="onLogin()">
                          <div class="col-12">
-                            <label for="yourEmail" class="form-label">Email</label> <input type="email" name="email" class="form-control" id="yourEmail" required>
+                            <label for="yourEmail" class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" id="yourEmail" formControlName="email">
+                            <p class="error" *ngIf="loginForm.controls['email'].touched && !loginForm.value.email">*This is required!</p>
                          </div>
                          <div class="col-12">
-                            <label for="yourPassword" class="form-label">Password</label> <input type="password" name="password" class="form-control" id="yourPassword" required>
+                            <label for="yourPassword" class="form-label">Password</label>
+                            <input type="password" name="password" class="form-control" id="yourPassword" formControlName="password">
+                            <p class="error" *ngIf="loginForm.controls['password'].touched && !loginForm.value.password">*This is required!</p>
                          </div>
-                         <div class="col-12">
+                         <!-- <div class="col-12">
                             <div class="form-check"> <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe" required> <label class="form-check-label" for="rememberMe">Remember me</label></div>
-                         </div>
+                         </div> -->
                          <div class="col-12"> <button class="btn btn-primary w-100" type="submit">Login</button></div>
                          <div class="col-12 d-flex justify-content-center">
                             <p class="small mb-0 text-muted">Don't have account? <a [routerLink]="['/register']" routerLinkActive="active" style="text-decoration: none;">Register</a></p>

@@ -16,18 +16,18 @@
                          <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
                          <p class="text-center small text-muted">Enter your personal details to create account</p>
                       </div>
-                      <form class="row g-3">
+                      <form class="row g-3" id="form_signup" [formGroup]="signupForm" (ngSubmit)="onSignup()">
                         <div class="col-12">
                           <label for="yourName" class="form-label">Username</label>
-                          <input type="text" name="username" class="form-control" id="yourUsername">
+                          <input type="text" name="username" class="form-control" id="yourUsername" formControlName="username">
                         </div>
                         <div class="col-12">
                           <label for="yourEmail" class="form-label">Email</label>
-                          <input type="email" name="email" class="form-control" id="yourEmail">
+                          <input type="email" name="email" class="form-control" id="yourEmail" formControlName="email">
                         </div>
                         <div class="col-12">
                           <label for="yourPassword" class="form-label">Password</label>
-                          <input type="password" name="password" class="form-control" id="yourPassword">
+                          <input type="password" name="password" class="form-control" id="yourPassword"formControlName="password">
                         </div>
 
                         <!-- <div class="col-12">

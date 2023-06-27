@@ -1,7 +1,7 @@
 
 <div class="app-container">
   <div class="page-content">
-    <s-learning-navigation></s-learning-navigation>
+    <s-learning-navigation *ngIf="navigationControlService.shouldDisplayNavigation"></s-learning-navigation>
     <router-outlet></router-outlet>
   </div>
 </div>
