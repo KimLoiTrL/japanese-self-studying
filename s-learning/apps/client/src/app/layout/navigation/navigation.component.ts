@@ -1,8 +1,20 @@
 import { Component } from '@angular/core';
+import { LocalStorageService } from '../../features/auth/local-storage.service';
 
 @Component({
   selector: 's-learning-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss'],
 })
-export class NavigationComponent {}
+export class NavigationComponent {
+  token: any;
+
+  constructor(
+      private localStorageService: LocalStorageService,
+  ) {
+  }
+
+  ngOnInit() {
+      this.token = this.localStorageService.getAccessToken();
+  }
+}

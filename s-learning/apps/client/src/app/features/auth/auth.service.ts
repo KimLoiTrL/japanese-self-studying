@@ -32,4 +32,9 @@ export class AuthService {
         })
       )
   }
+
+  logout() {
+    this.storageService.setItem("id", null);
+    this.storageService.removeAccessToken();
+  }
 }

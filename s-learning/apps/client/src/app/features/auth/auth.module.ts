@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 const routes: Routes = [
   {
@@ -15,14 +16,19 @@ const routes: Routes = [
     path: 'register',
     component: SignupComponent,
   },
+  {
+    path: 'logout',
+    component: LogoutComponent,
+  },
 ];
 
 @NgModule({
-  declarations: [LoginComponent, SignupComponent],
+  declarations: [LoginComponent, SignupComponent, LogoutComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    RouterModule.forChild(routes)],
+    RouterModule.forChild(routes),
+  ],
 })
 export class AuthModule {}

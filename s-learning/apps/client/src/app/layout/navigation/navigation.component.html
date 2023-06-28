@@ -5,7 +5,7 @@
           <span class="d-none d-lg-block">S-learning</span>
       </a>
   </div>
-  <div class="navbar-nav d-flex flex-lg-row flex-row" id="header-menu">
+  <div class="navbar-nav d-flex flex-lg-row flex-row" id="header-menu" *ngIf="token">
     <div class="nav-item">
       <a class="underline" [routerLink]="['/home']" routerLinkActive="active">Home</a>
     </div>
@@ -21,7 +21,7 @@
 			</div>
 		</div>
   </div>
-  <div class="search-bar">
+  <div class="search-bar" *ngIf="token">
       <form class="search-form d-flex align-items-center" method="POST" action="#">
           <input type="text" name="query" placeholder="Search" title="Enter search keyword">
           <button type="submit" title="Search">
@@ -29,23 +29,23 @@
           </button>
       </form>
   </div>
-  <div class="user-info navbar-right d-flex flex-lg-row align-items-center">
-    <img src="https://antimatter.vn/wp-content/uploads/2022/11/anh-avatar-trang-fb-mac-dinh.jpg" alt="Profile" class="rounded-circle">
+  <div class="user-info navbar-right d-flex flex-lg-row align-items-center" *ngIf="token">
+    <i class="bi bi-person" style="font-size: 24px;"></i>
     <div ngbDropdown class="nav-item user-dropdown" style="cursor: pointer;">
-      <a class="user-name" ngbDropdownToggle>User01</a>
+      <a class="user-name" ngbDropdownToggle></a>
       <div class="dropdown-second-custom" ngbDropdownMenu>
-				<a class="dropdown-item d-flex align-items-center"> <i class="bi bi-person"></i> <span>My Profile</span></a>
+				<a class="dropdown-item d-flex align-items-center"> <i class="bi bi-person-lines-fill"></i> <span>My Profile</span></a>
         <hr>
-        <a class="dropdown-item d-flex align-items-center" href="#"> <i class="bi bi-box-arrow-right"></i> <span>Sign Out</span> </a>
+        <a class="dropdown-item d-flex align-items-center" [routerLink]="['/logout']" routerLinkActive="active"> <i class="bi bi-box-arrow-right"></i> <span>Logout</span> </a>
 			</div>
     </div>
   </div>
-  <!-- <div class="navbar-right">
-    <button type="button" class="btn btn-light" style="margin-right: 10px;"[routerLink]="['/login']" routerLinkActive="active">
+  <div class="navbar-right">
+    <button type="button" class="btn btn-light" style="margin-right: 10px;"[routerLink]="['/login']" routerLinkActive="active" *ngIf="!token">
       Login
     </button>
-    <button type="button" class="btn btn-warning" style="margin-right: 20px;" [routerLink]="['/register']" routerLinkActive="active">
+    <button type="button" class="btn btn-warning" style="margin-right: 20px;" [routerLink]="['/register']" routerLinkActive="active" *ngIf="!token">
       Register
     </button>
-  </div> -->
+  </div>
 </div>
