@@ -13,6 +13,7 @@ import { CardsModule } from './features/cards/cards.module';
 import { GramsetsModule } from './features/gramsets/gramsets.module';
 import { GramcardsModule } from './features/gramcards/gramcards.module';
 import { AuthModule } from './features/auth/auth.module';
+import { UsersModule } from './features/users/users.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AuthModule } from './features/auth/auth.module';
     CardsModule,
     GramsetsModule,
     GramcardsModule,
-    AuthModule
+    AuthModule,
+    UsersModule
   ],
   providers: [
     {

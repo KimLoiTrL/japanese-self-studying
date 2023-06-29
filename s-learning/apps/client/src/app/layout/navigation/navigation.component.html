@@ -32,9 +32,9 @@
   <div class="user-info navbar-right d-flex flex-lg-row align-items-center" *ngIf="token">
     <i class="bi bi-person" style="font-size: 24px;"></i>
     <div ngbDropdown class="nav-item user-dropdown" style="cursor: pointer;">
-      <a class="user-name" ngbDropdownToggle></a>
+      <a class="user-name" ngbDropdownToggle><span>{{userInfo.username}}</span></a>
       <div class="dropdown-second-custom" ngbDropdownMenu>
-				<a class="dropdown-item d-flex align-items-center"> <i class="bi bi-person-lines-fill"></i> <span>My Profile</span></a>
+				<a class="dropdown-item d-flex align-items-center" [routerLink]="['/profile/edit']" routerLinkActive="active"> <i class="bi bi-person-lines-fill"></i> <span>My Profile</span></a>
         <hr>
         <a class="dropdown-item d-flex align-items-center" [routerLink]="['/logout']" routerLinkActive="active"> <i class="bi bi-box-arrow-right"></i> <span>Logout</span> </a>
 			</div>

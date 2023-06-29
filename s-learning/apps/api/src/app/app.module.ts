@@ -6,6 +6,7 @@ import { CardsModule } from "./cards/cards.module";
 import { GramsetsModule } from "./gramsets/gramsets.module";
 import { GramcardsModule } from "./gramcards/gramcards.module";
 import { AuthModule } from "./auth/auth.module";
+import { UsersModule } from "./users/users.module";
 
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
@@ -27,7 +28,8 @@ import { AppService } from "./app.service";
     CardsModule,
     GramsetsModule,
     GramcardsModule,
-    AuthModule
+    AuthModule,
+    UsersModule
   ],
   controllers: [AppController],
   providers: [AppService],

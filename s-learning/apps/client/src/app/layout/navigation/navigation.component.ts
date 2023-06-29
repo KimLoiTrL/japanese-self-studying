@@ -8,6 +8,7 @@ import { LocalStorageService } from '../../features/auth/local-storage.service';
 })
 export class NavigationComponent {
   token: any;
+  userInfo: any;
 
   constructor(
       private localStorageService: LocalStorageService,
@@ -16,5 +17,6 @@ export class NavigationComponent {
 
   ngOnInit() {
       this.token = this.localStorageService.getAccessToken();
+      this.userInfo = this.localStorageService.getItem("id");
   }
 }

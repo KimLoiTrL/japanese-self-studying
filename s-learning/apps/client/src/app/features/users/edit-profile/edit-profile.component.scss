@@ -1,0 +1,34 @@
+.profile-page{
+  padding-top: 80px;
+}
+
+.info-title{
+  color: #344F71;
+}
+
+.avatar{
+  height: 230px;
+}
+
+.modal-header{
+  background-color: #344F71;
+  color: #fff;
+}
+
+.pw{
+  -webkit-text-security: disc;
+  -moz-text-security: disc;
+  text-rendering: disc;
+}
+
+.btn-edit{
+  float: right;
+  margin-right: 12px;
+}
+
+button.close {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  color: #fff;
+}
