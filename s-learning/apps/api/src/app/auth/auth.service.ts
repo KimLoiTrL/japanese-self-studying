@@ -23,6 +23,7 @@ export class AuthService {
       username,
       email,
       password: hashedPassword,
+      role: "user"
     });
     const token = this.jwtService.sign({ id: user._id });
     return { token };
@@ -38,7 +39,7 @@ export class AuthService {
     if (!isPasswordMatched) {
       throw new UnauthorizedException('Invalid email or password');
     }
-    const token = this.jwtService.sign({ id: user._id });
+    const token = this.jwtService.sign({ id: user._id , role: user.role});
     return { token, user };
   }
 }

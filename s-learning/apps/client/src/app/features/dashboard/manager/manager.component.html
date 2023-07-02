@@ -1,0 +1,11 @@
+<div class="manager-page">
+  <div class="container">
+    <h2 style="color: #344F71;">Management</h2>
+    <ul class="nav nav-tabs">
+      <li class="nav-item" *ngFor="let tab of tabItems" (click)="setActiveTab(tab)" [class.active]="activeTab === tab">
+        <a class="nav-link" [routerLink]="[tab.route]">{{ tab.title }}</a>
+      </li>
+    </ul>
+    <router-outlet></router-outlet>
+  </div>
+</div>

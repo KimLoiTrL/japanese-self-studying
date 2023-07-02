@@ -24,6 +24,14 @@ const routes: Routes = [
     path: 'profile',
     loadChildren: () => import('./features/users/users.module').then(m => m.UsersModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule),
+    canActivate: [AuthGuard]
+    // data: {
+    //   role: 'admin',
+    // }
   }
 ];
 

@@ -1,0 +1,93 @@
+<div class="useradmin-page">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <!-- <div class="row">
+          <div>
+            <button type="button" class="btn btn-primary">Add</button>
+          </div>
+      </div> -->
+    </div>
+    <table class="table table-hover">
+      <thead>
+          <tr>
+              <th>#</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Date Created</th>
+              <th>Action</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of userList | paginate: config; index as i">
+          <td>{{ (config.currentPage - 1) * config.itemsPerPage + i + 1 }}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.createdAt | date:'dd/MM/yyyy'}}</td>
+          <td>
+              <span id="edit" class="edit-btn" (click)="openEditModal(user)"><i class="bi bi-pencil-square"></i></span>
+              <span id="delete" class="delete-btn" (click)="openDeleteModal(user)"><i class="bi bi-trash3-fill"></i></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls
+      class="custom-pagination"
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="pageChanged($event)"
+      #customPaginator>
+    </pagination-controls>
+  </div>
+</div>
+
+<!-- Modal Edit-->
+<div class="modal" id="editModal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayEdit}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Edit User Profile</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onCloseHandled()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <form class="g-3" id="form_edit" [formGroup]="userEditForm" (ngSubmit)="editUser()">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username" formControlName="username" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" formControlName="email" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onCloseHandled()">Close</button>
+            <button type="submit" class="btn btn-success">Save</button>
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Delete -->
+<div class="modal" id="deleteModal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayDelete}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Warning!</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onCloseHandled()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you sure to delete the item?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onCloseHandled()">Close</button>
+          <button type="submit" class="btn btn-danger" (click)="deleteUser()">Confirm Delete</button>
+        </div>
+    </div>
+  </div>
+</div>

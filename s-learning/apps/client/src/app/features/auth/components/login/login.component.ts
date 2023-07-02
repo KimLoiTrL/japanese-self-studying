@@ -39,13 +39,15 @@ export class LoginComponent {
   onLogin(){
     this.authService.login({email: this.loginForm.value.email, password: this.loginForm.value.password}).subscribe((data: any) =>
     {
-      if(data){
+      if (data.user.role === 'admin') {
+        window.location.href = '/dashboard/manager';
+      } else {
         window.location.href = '/home';
       }
     },
     (error: any) => {
       this.errLogin = error.error.message;
     }
-   );
+  );
 }
 }
