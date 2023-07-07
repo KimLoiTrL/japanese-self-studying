@@ -1,1 +1,91 @@
-<p>grammar-topic works!</p>
+<div class="grammar-page">
+  <div class="table-wrapper">
+    <!-- <div class="table-title">
+      <div class="row">
+          <div>
+            <button type="button" class="btn btn-primary">Add</button>
+          </div>
+      </div>
+    </div> -->
+    <table class="table table-hover">
+      <thead>
+          <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Content</th>
+              <th>Action</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of gramList | paginate: config; index as i">
+          <td>{{ (config.currentPage - 1) * config.itemsPerPage + i + 1 }}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.content}}</td>
+          <td>
+              <span id="edit" class="edit-btn" (click)="openEditModal(item)"><i class="bi bi-pencil-square"></i></span>
+              <span id="delete" class="delete-btn" (click)="openDeleteModal(item)"><i class="bi bi-trash3-fill"></i></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls
+      class="custom-pagination"
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="pageChanged($event)"
+      #customPaginator>
+    </pagination-controls>
+  </div>
+</div>
+
+<!-- Modal Edit-->
+<div class="modal" id="editModal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayEdit}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Edit Item</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onCloseHandled()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <form class="g-3" id="form_edit" [formGroup]="gramTopicEditForm" (ngSubmit)="editTopic()">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" formControlName="name" required>
+            </div>
+            <div class="form-group">
+              <label for="content">Content</label>
+              <input type="text" class="form-control" id="content" formControlName="content" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onCloseHandled()">Close</button>
+            <button type="submit" class="btn btn-success">Save</button>
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Delete -->
+<div class="modal" id="deleteModal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayDelete}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Warning!</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onCloseHandled()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you sure to delete the item?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onCloseHandled()">Close</button>
+          <button type="submit" class="btn btn-danger" (click)="deleteTopic()">Confirm Delete</button>
+        </div>
+    </div>
+  </div>
+</div>

@@ -8,6 +8,7 @@ import { LocalStorageService } from '../../features/auth/local-storage.service';
 })
 export class NavigationComponent {
   token: any;
+  tokenAdmin: any;
   userInfo: any;
 
   constructor(
@@ -16,7 +17,12 @@ export class NavigationComponent {
   }
 
   ngOnInit() {
-      this.token = this.localStorageService.getAccessToken();
-      this.userInfo = this.localStorageService.getItem("id");
+    this.token = this.localStorageService.getAccessToken();
+    this.userInfo = this.localStorageService.getItem("id");
+    if (this.userInfo.role === "admin") {
+      this.tokenAdmin = this.token;
+    } else {
+      this.tokenAdmin = null;
+    }
   }
 }
