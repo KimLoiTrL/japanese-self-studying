@@ -29,7 +29,7 @@ export class AuthService {
       .pipe(
         tap((data: any) => {
           // this.storageService.setItem("id", data.user._doc._id);
-          this.storageService.setAccessToken(data.token);
+          // this.storageService.setAccessToken(data.token);
         })
       )
   }

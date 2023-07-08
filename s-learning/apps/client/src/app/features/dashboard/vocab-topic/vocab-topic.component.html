@@ -13,7 +13,7 @@
               <th>#</th>
               <th>Name</th>
               <th>Image</th>
-              <th>ImageURL</th>
+              <!-- <th>ImageURL</th> -->
               <th>Action</th>
           </tr>
       </thead>
@@ -21,8 +21,8 @@
         <tr *ngFor="let item of vocabList | paginate: config; index as i">
           <td>{{ (config.currentPage - 1) * config.itemsPerPage + i + 1 }}</td>
           <td>{{item.name}}</td>
-          <td><img style="height: 70%; width: 70%;" src="{{item.imageUrl}}" alt=""></td>
-          <td>{{item.imageUrl}}</td>
+          <td><img style="height: 150px; width: 220px;" src="{{item.imageUrl}}" alt=""></td>
+          <!-- <td>{{item.imageUrl}}</td> -->
           <td>
               <span id="edit" class="edit-btn" (click)="openEditModal(item)"><i class="bi bi-pencil-square"></i></span>
               <span id="delete" class="delete-btn" (click)="openDeleteModal(item)"><i class="bi bi-trash3-fill"></i></span>

@@ -19,7 +19,7 @@ export class NavigationComponent {
   ngOnInit() {
     this.token = this.localStorageService.getAccessToken();
     this.userInfo = this.localStorageService.getItem("id");
-    if (this.userInfo.role === "admin") {
+    if (this.userInfo?.role === "admin") {
       this.tokenAdmin = this.token;
     } else {
       this.tokenAdmin = null;

@@ -19,6 +19,7 @@ export class GramSetListComponent implements OnInit{
   ];
   gramcardsCount: number[] = [];
   selectedSortOption : any;
+  searchKeyword!: string;
 
   ngOnInit(): void{
     this.selectedSortOption = 'Alphabet';
@@ -37,6 +38,7 @@ export class GramSetListComponent implements OnInit{
   pageChanged (event: any){
     this.config.currentPage = event;
     this.calcGramcardsCounts();
+    this.search();
   }
 
   loadPage = () => {
@@ -62,5 +64,18 @@ export class GramSetListComponent implements OnInit{
       this.gramsets.sort((a, b) => b.gramcards.length - a.gramcards.length);
     }
     this.calcGramcardsCounts();
+  }
+
+  search() {
+    if (this.searchKeyword) {
+      this.gramsetService.get().subscribe((data) => {
+        const filteredGramsets = data.filter((gramset) =>
+          gramset.name.toLowerCase().includes(this.searchKeyword.toLowerCase())
+        );
+        this.gramsets = filteredGramsets;
+      });
+    } else {
+      this.getAll();
+    }
   }
 }

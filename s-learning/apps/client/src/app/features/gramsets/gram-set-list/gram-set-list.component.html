@@ -4,11 +4,21 @@
       <div class="title">
         <h2>Grammar</h2>
       </div>
-      <div class="sort-select">
-        <span class="text-muted" style="padding-right: 10px;">sort by</span>
-        <select [(ngModel)]="selectedSortOption" (change)="sortGramsets()">
-          <option *ngFor="let item of items" [value]="item">{{item}}</option>
-        </select>
+      <div class="sort-select d-flex align-items-center">
+        <div class="search-bar">
+          <form class="search-form d-flex align-items-center" (ngSubmit)="search()">
+            <input type="text" name="query" placeholder="Search" title="Enter search keyword" [(ngModel)]="searchKeyword" (ngModelChange)="search()">
+            <button type="submit" title="Search">
+                <i class="bi bi-search"></i>
+            </button>
+          </form>
+        </div>
+        <div>
+          <span class="text-muted" style="padding-right: 10px;">sort by</span>
+          <select [(ngModel)]="selectedSortOption" (change)="sortGramsets()">
+            <option *ngFor="let item of items" [value]="item">{{item}}</option>
+          </select>
+        </div>
       </div>
     </div>
     <div class="set-list row">

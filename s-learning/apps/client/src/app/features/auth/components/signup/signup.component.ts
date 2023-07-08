@@ -12,6 +12,7 @@ import { NavigationControlService } from '../../navigation-control.service';
 })
 export class SignupComponent {
   signupForm!: FormGroup;
+  errSignup = null;
 
   constructor(
     private authService: AuthService,
@@ -30,7 +31,9 @@ export class SignupComponent {
   }
 
   ngOnInit() {
-    this.navigationControlService.shouldDisplayNavigation = false;
+    setTimeout(() => {
+      this.navigationControlService.shouldDisplayNavigation = false;
+    });
   }
 
   onSignup(){
@@ -41,6 +44,9 @@ export class SignupComponent {
         window.location.href = '/login';
       }
     },
+    (error: any) => {
+      this.errSignup = error.error.message;
+    }
    );
   }
 }

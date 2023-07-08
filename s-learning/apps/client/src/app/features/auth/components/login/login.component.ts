@@ -12,8 +12,6 @@ import { NavigationControlService } from '../../navigation-control.service';
 })
 export class LoginComponent {
 
-  shouldDisplayNavigation = false;
-
   loginForm!: FormGroup;
   errLogin = null;
 
@@ -33,7 +31,9 @@ export class LoginComponent {
   }
 
   ngOnInit() {
-    this.navigationControlService.shouldDisplayNavigation = false;
+    setTimeout(() => {
+      this.navigationControlService.shouldDisplayNavigation = false;
+    });
   }
 
   onLogin(){
