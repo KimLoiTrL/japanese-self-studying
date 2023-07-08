@@ -30,7 +30,7 @@ export class GrammarTopicService {
 }
 
 export interface GramTopic{
-  _id: string;
+  _id?: string;
   name: string;
   content: string;
   gramcards: string[];

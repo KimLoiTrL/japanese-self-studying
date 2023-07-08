@@ -30,7 +30,7 @@ export class VocabTopicService {
 }
 
 export interface VocabTopic{
-  _id: string;
+  _id?: string;
   name: string;
   imageUrl: string;
   cards: string[];

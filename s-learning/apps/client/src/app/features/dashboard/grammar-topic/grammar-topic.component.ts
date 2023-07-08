@@ -14,7 +14,9 @@ export class GrammarTopicComponent implements OnInit {
   config: any;
   displayEdit = "none";
   displayDelete = "none";
+  displayAdd = "none";
   gramTopicEditForm! : FormGroup;
+  gramTopicAddForm! : FormGroup;
   selectedGram!: GramTopic;
   editedGram!: GramTopic;
 
@@ -30,6 +32,10 @@ export class GrammarTopicComponent implements OnInit {
     this.gramTopicEditForm = this.formBuilder.group({
       name: [''],
       content: ['']
+    });
+    this.gramTopicAddForm = this.formBuilder.group({
+      nameAdd: [''],
+      contentAdd: ['']
     });
   }
 
@@ -65,31 +71,54 @@ export class GrammarTopicComponent implements OnInit {
     this.displayDelete = "block";
   }
 
+  openAddModal() {
+    this.displayAdd = "block";
+  }
+
   onCloseHandled() {
     this.displayEdit = "none";
     this.displayDelete = "none";
+    this.displayAdd = "none";
   }
 
   editTopic() {
     const id = this.selectedGram?._id;
-    const updatedGram: GramTopic = {
-      _id: id,
-      name: this.gramTopicEditForm.value.name,
-      content: this.gramTopicEditForm.value.content,
-      gramcards: this.gramTopicEditForm.value.gramcards
-    };
+    if(id){
+      const updatedGram: GramTopic = {
+        _id: id,
+        name: this.gramTopicEditForm.value.name,
+        content: this.gramTopicEditForm.value.content,
+        gramcards: this.gramTopicEditForm.value.gramcards
+      };
 
-    this.gramTopicService.updateGramset(id, updatedGram).subscribe(() => {
-      this.getAllGramTopic();
-      this.onCloseHandled();
-    });
+      this.gramTopicService.updateGramset(id, updatedGram).subscribe(() => {
+        this.getAllGramTopic();
+        this.onCloseHandled();
+      });
+    }
   }
 
   deleteTopic(){
     const id = this.selectedGram?._id;
-    this.gramTopicService.deleteGramset(id).subscribe(() => {
+    if(id){
+      this.gramTopicService.deleteGramset(id).subscribe(() => {
+        this.getAllGramTopic();
+        this.onCloseHandled();
+      })
+    }
+  }
+
+  addTopic() {
+    const addGram: GramTopic = {
+      _id: undefined,
+      name: this.gramTopicAddForm.value.nameAdd,
+      content: this.gramTopicAddForm.value.contentAdd,
+      gramcards: []
+    };
+
+    this.gramTopicService.createGramset(addGram).subscribe(() => {
       this.getAllGramTopic();
       this.onCloseHandled();
-    })
+    });
   }
 }

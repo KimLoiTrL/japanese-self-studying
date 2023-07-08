@@ -13,7 +13,9 @@ export class VocabTopicComponent implements OnInit{
   config: any;
   displayEdit = "none";
   displayDelete = "none";
+  displayAdd = "none";
   vocabTopicEditForm! : FormGroup;
+  vocabTopicAddForm! : FormGroup;
   selectedVocab!: VocabTopic;
   editedVocab!: VocabTopic;
 
@@ -29,6 +31,10 @@ export class VocabTopicComponent implements OnInit{
     this.vocabTopicEditForm = this.formBuilder.group({
       name: [''],
       imageUrl: ['']
+    });
+    this.vocabTopicAddForm = this.formBuilder.group({
+      nameAdd: [''],
+      imgUrlAdd: ['']
     });
   }
 
@@ -64,31 +70,54 @@ export class VocabTopicComponent implements OnInit{
     this.displayDelete = "block";
   }
 
+  openAddModal() {
+    this.displayAdd = "block";
+  }
+
   onCloseHandled() {
     this.displayEdit = "none";
     this.displayDelete = "none";
+    this.displayAdd = "none";
   }
 
   editTopic() {
     const id = this.selectedVocab?._id;
-    const updatedVocab: VocabTopic = {
-      _id: id,
-      name: this.vocabTopicEditForm.value.name,
-      imageUrl: this.vocabTopicEditForm.value.imageUrl,
-      cards: this.vocabTopicEditForm.value.cards
-    };
+    if(id){
+      const updatedVocab: VocabTopic = {
+        _id: id,
+        name: this.vocabTopicEditForm.value.name,
+        imageUrl: this.vocabTopicEditForm.value.imageUrl,
+        cards: this.vocabTopicEditForm.value.cards
+      };
 
-    this.vocabTopicService.updateVocabTopic(id, updatedVocab).subscribe(() => {
-      this.getAllVocabTopic();
-      this.onCloseHandled();
-    });
+      this.vocabTopicService.updateVocabTopic(id, updatedVocab).subscribe(() => {
+        this.getAllVocabTopic();
+        this.onCloseHandled();
+      });
+    }
   }
 
   deleteTopic(){
     const id = this.selectedVocab?._id;
-    this.vocabTopicService.deleteVocabTopic(id).subscribe(() => {
+    if(id){
+      this.vocabTopicService.deleteVocabTopic(id).subscribe(() => {
+        this.getAllVocabTopic();
+        this.onCloseHandled();
+      })
+    }
+  }
+
+  addTopic(){
+    const addVocab: VocabTopic = {
+      _id: undefined,
+      name: this.vocabTopicAddForm.value.nameAdd,
+      imageUrl: this.vocabTopicAddForm.value.imgUrlAdd,
+      cards: []
+    };
+
+    this.vocabTopicService.createVocabTopic(addVocab).subscribe(() => {
       this.getAllVocabTopic();
       this.onCloseHandled();
-    })
+    });
   }
 }

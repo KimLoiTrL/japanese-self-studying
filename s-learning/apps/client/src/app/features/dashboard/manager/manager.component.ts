@@ -9,8 +9,8 @@ export class ManagerComponent implements OnInit {
 
   tabItems: TabItem[] = [
     { title: 'User', route: 'user' },
-    { title: 'GrammarTopics', route: 'grammar-topic' },
-    { title: 'VocabTopics', route: 'vocab-topic' }
+    { title: 'Grammar Topics', route: 'grammar-topic' },
+    { title: 'Vocab Topics', route: 'vocab-topic' }
   ];
   activeTab!: TabItem;
 
